@@ -9,9 +9,15 @@ services:
       OPERATION_PATH: /itinerary
       UPSTREAM_URL: http://stage-graph:8081/optimize
     depends_on:
-      - stage-graph
+      stage-graph:
+        condition: service_healthy
   stage-graph:
     build: ./services/stage-graph
+    healthcheck:
+      test: ["CMD", "bash", "-ec", ": </dev/tcp/127.0.0.1/8081"]
+      interval: 1s
+      timeout: 2s
+      retries: 20
     environment:
       HOST: 0.0.0.0
       PORT: "8081"
