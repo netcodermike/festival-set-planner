@@ -1,0 +1,64 @@
+{
+  "slug": "festival-set-planner",
+  "gateway": [
+    "itinerary",
+    "/itinerary",
+    "JavaScript"
+  ],
+  "worker": [
+    "stage-graph",
+    "/optimize",
+    "C#"
+  ],
+  "cases": [
+    [
+      "Pick the highest-weight route",
+      {
+        "walk": 10,
+        "sets": [
+          {
+            "id": "a",
+            "artist": "Blue Current",
+            "stage": "Pier",
+            "start": 600,
+            "end": 650,
+            "weight": 8
+          },
+          {
+            "id": "b",
+            "artist": "Low Tide",
+            "stage": "Dune",
+            "start": 655,
+            "end": 690,
+            "weight": 9
+          },
+          {
+            "id": "c",
+            "artist": "Paper Kites",
+            "stage": "Pier",
+            "start": 650,
+            "end": 680,
+            "weight": 5
+          },
+          {
+            "id": "d",
+            "artist": "Night Glass",
+            "stage": "Dune",
+            "start": 700,
+            "end": 750,
+            "weight": 10
+          }
+        ]
+      },
+      200,
+      {
+        "artists": [
+          "Blue Current",
+          "Paper Kites",
+          "Night Glass"
+        ],
+        "totalWeight": 23
+      }
+    ]
+  ]
+}

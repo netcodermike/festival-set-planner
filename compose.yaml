@@ -1,0 +1,18 @@
+services:
+  itinerary:
+    build: ./services/itinerary
+    ports:
+      - "127.0.0.1:${DEMO_PORT:-8080}:8080"
+    environment:
+      HOST: 0.0.0.0
+      PORT: "8080"
+      OPERATION_PATH: /itinerary
+      UPSTREAM_URL: http://stage-graph:8081/optimize
+    depends_on:
+      - stage-graph
+  stage-graph:
+    build: ./services/stage-graph
+    environment:
+      HOST: 0.0.0.0
+      PORT: "8081"
+      OPERATION_PATH: /optimize
